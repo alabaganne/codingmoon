@@ -1,7 +1,7 @@
 import React from "react";
 
-const Index = () => {
-  return <div>Index</div>;
+const Campaigns = () => {
+  return <div>Campaigns</div>;
 };
 
-export default Index;
+export default Campaigns;

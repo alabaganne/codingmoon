@@ -1,9 +1,29 @@
-import React from 'react'
+import React from "react";
+import { Link } from "react-router-dom";
+import { FiHome, FiTrello, FiTrendingUp } from "react-icons/fi";
 
 const Navbar = () => {
-	return (
-		<div>Navbar</div>
-	)
-}
+  return (
+    <nav className="bg-gray-900 text-white text-sm">
+      <div className="container mx-auto flex-between py-4">
+        <div className="flex gap-2">
+          <Link className="navlink" to="/dashboard">
+            <FiHome className="icon" />
+            Dashboard
+          </Link>
+          <Link className="navlink" to="/dashboard">
+            <FiTrello className="icon" />
+            Campaigns
+          </Link>
+          <Link className="navlink" to="/dashboard">
+            <FiTrendingUp className="icon" />
+            Statistics
+          </Link>
+        </div>
+        <div></div>
+      </div>
+    </nav>
+  );
+};
 
-export default Navbar
+export default Navbar;

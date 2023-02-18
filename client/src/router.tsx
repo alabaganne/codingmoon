@@ -1,18 +1,18 @@
 import { ReactNode } from "react";
-import Main from "./components/Layouts/Main";
+import { createBrowserRouter } from "react-router-dom";
+import MainLayout from "./components/Layouts/MainLayout";
+import Campaigns from "./pages/Campaigns/Index";
 import Dashboard from "./pages/Dashboard";
-import Home from "./pages/Home";
 
-type Route = {
-  path: string;
-  element: ReactNode;
-  childrens?: [Route];
-};
-
-export const authenticatedRoutes: Route[] = [
+const router = createBrowserRouter([
   {
     path: "/",
-    element: <Main />,
-    childrens: [{ path: "/", element: <Dashboard /> }],
+    element: <MainLayout />,
+    children: [
+      { path: "/", element: <Dashboard /> },
+      { path: "/campaigns", element: <Campaigns /> },
+    ],
   },
-];
+]);
+
+export default router;
