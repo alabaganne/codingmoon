@@ -1,7 +1,7 @@
 import React from "react";
 
-const Edit = () => {
-  return <div>Edit</div>;
+const EditCampaign = () => {
+  return <div>EditCampaign</div>;
 };
 
-export default Edit;
+export default EditCampaign;

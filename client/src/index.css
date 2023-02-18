@@ -15,7 +15,7 @@
   }
 
   .btn-primary {
-    @apply rounded;
+    @apply rounded bg-blue-500 hover:bg-blue-600 px-5 py-4 font-medium shadow duration-75 flex gap-1 items-center;
   }
   .flex-center {
     @apply flex items-center justify-center;

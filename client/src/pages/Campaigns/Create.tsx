@@ -1,7 +1,7 @@
 import React from "react";
 
-const Create = () => {
-  return <div>Create</div>;
+const CreateCampaign = () => {
+  return <div>CreateCampaign</div>;
 };
 
-export default Create;
+export default CreateCampaign;
