@@ -5,9 +5,9 @@ import Navbar from "../shared/Navbar";
 
 const MainLayout = () => {
   return (
-    <div>
+    <div className="flex flex-col min-h-screen">
       <Navbar />
-      <main className="bg-gray-800 text-white">
+      <main className="bg-gray-800 text-white flex-1">
         <Outlet />
       </main>
       <Footer />
