@@ -17,7 +17,7 @@ const Navbar = () => {
             <FiHome className="icon" />
             Dashboard
           </Link>
-          <Link className="navlink" to="/dashboard">
+          <Link className="navlink" to="/campaigns">
             <FiTrello className="icon" />
             Campaigns
           </Link>

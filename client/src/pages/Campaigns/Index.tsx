@@ -1,7 +1,12 @@
 import React from "react";
+import Table from "./Table";
 
 const Campaigns = () => {
-  return <div>Campaigns</div>;
+  return (
+    <div className=" container mx-auto">
+      <Table />
+    </div>
+  );
 };
 
 export default Campaigns;
