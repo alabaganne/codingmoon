@@ -1,10 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FiHome, FiTrello, FiTrendingUp } from "react-icons/fi";
+import {
+  FiHome,
+  FiLogOut,
+  FiTrello,
+  FiTrendingUp,
+  FiUser,
+} from "react-icons/fi";
 
 const Navbar = () => {
   return (
-    <nav className="bg-gray-900 text-white text-sm">
+    <nav className="bg-gray-900 text-white text-sm shadow">
       <div className="container mx-auto flex-between py-4">
         <div className="flex gap-2">
           <Link className="navlink" to="/dashboard">
@@ -20,7 +26,16 @@ const Navbar = () => {
             Statistics
           </Link>
         </div>
-        <div></div>
+        <div className="flex gap-2">
+          <Link className="navlink" to="/dashboard">
+            <FiUser className="icon" />
+            Account
+          </Link>
+          <Link className="navlink" to="/dashboard">
+            <FiLogOut className="icon" />
+            Logout
+          </Link>
+        </div>
       </div>
     </nav>
   );
