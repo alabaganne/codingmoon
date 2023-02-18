@@ -10,7 +10,7 @@ import {
 
 const Navbar = () => {
   return (
-    <nav className="bg-gray-900 text-white text-sm shadow">
+    <nav className="bg-dark-5 text-white text-sm shadow">
       <div className="container mx-auto flex-between py-4">
         <div className="flex gap-2">
           <Link className="navlink" to="/dashboard">

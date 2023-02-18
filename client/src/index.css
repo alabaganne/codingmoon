@@ -8,7 +8,7 @@
   }
 
   .navlink {
-    @apply flex items-center gap-2 px-4 py-3 hover:bg-gray-800 rounded-lg;
+    @apply flex items-center gap-2 px-4 py-3 hover:bg-dark-4 rounded-lg;
   }
   .navlink .icon {
     @apply text-gray-500 h-5 w-5 mr-1;
