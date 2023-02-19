@@ -4,7 +4,12 @@ import instagram from "../../assets/icons/instagram.svg";
 import tiktok from "../../assets/icons/tiktok.svg";
 import youtube from "../../assets/icons/youtube.svg";
 
-export type platform = "facebook" | "instagram" | "tiktok" | "youtube";
+export type platform =
+  | "facebook"
+  | "instagram"
+  | "tiktok"
+  | "youtube"
+  | "twitter";
 
 export interface IProps {
   platforms: platform[];

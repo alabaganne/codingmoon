@@ -23,6 +23,7 @@ const router = createBrowserRouter([
     element: <MainLayout />,
     children: [
       { path: "/", element: <Dashboard /> },
+      { path: "/dashboard", element: <Dashboard /> },
       { path: "/campaigns", element: <Campaigns /> },
       { path: "/statistics", element: <Statistics /> },
       { path: "/campaigns/create", element: <CreateCampaign /> },
