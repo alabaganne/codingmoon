@@ -53,8 +53,8 @@ const Posts = () => {
       <div className="flex-between">
         <div className="text-3xl font-semibold">Bomb Of Flavour</div>
         <div>
-          <Link to="/create" className="btn-primary">
-            <FiFileText className="h-5 w-5" />
+          <Link to="create" className="btn-primary">
+            <FiPlus className="h-5 w-5" />
             Create Post
           </Link>
         </div>

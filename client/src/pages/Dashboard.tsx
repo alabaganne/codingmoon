@@ -11,6 +11,7 @@ import {
 } from "chart.js";
 import { Doughnut, Line } from "react-chartjs-2";
 import { FiArrowDown, FiArrowUp } from "react-icons/fi";
+import HardChart from "./HardChart";
 
 ChartJS.register(
   ArcElement,
@@ -91,12 +92,17 @@ const Dashboard = () => {
         <div className="flex-1 space-y-6">
           <div className="p-8 bg-dark-6 rounded-lg">
             <div className="flex-between group">
-              <div className="text-xl font-semibold">Yearly Progress</div>
+              <div className="text-xl font-semibold">Monthly Progress</div>
               <button onClick={() => setSection1Open(!section1Open)}>
                 {section1Open ? arrowUp : arrowDown}
               </button>
             </div>
-            {section1Open && <div className="mt-6 text-gray-400">Content</div>}
+            {section1Open && (
+              <div className="mt-6 text-gray-400">
+                {/* <Doughnut {...doughnutChartData} /> */}
+                <HardChart />
+              </div>
+            )}
           </div>
           <div className="p-8 bg-dark-6 rounded-lg">
             <div className="flex-between group">
