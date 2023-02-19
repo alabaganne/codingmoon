@@ -1,8 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
+import { useMutation } from "react-query";
+import axios from "axios";
 
 const CreateCampaign = () => {
-  const submitCampaign = () => {
+  const [name, setName] = useState("");
+  const [budget, setBudget] = useState(0);
+  const [status, setStatus] = useState("Active");
+
+  const addCampaign = useMutation("addCampaign", () =>
+    axios.post("http://localhost:8000/api/campaign", { name, budget, status })
+  );
+
+  const submitCampaign = (e: any) => {
+    e.preventDefault();
     console.log("submit campaign");
+    addCampaign.mutate();
   };
 
   return (
@@ -20,6 +32,8 @@ const CreateCampaign = () => {
             <input
               type="text"
               id="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
               className="form-control"
               placeholder="e.g. Spoon"
             />
@@ -29,13 +43,20 @@ const CreateCampaign = () => {
             <input
               type="text"
               id="budget"
+              value={budget}
+              onChange={(e) => setBudget(parseInt(e.target.value, 10))}
               className="form-control"
               placeholder="Value in TND"
             />
           </div>
           <div className="form-group">
             <label htmlFor="isActive">Status</label>
-            <select name="isActive" id="isActive" className="form-control ">
+            <select
+              name="isActive"
+              id="isActive"
+              className="form-control "
+              onChange={(e) => setStatus(e.target.value)}
+            >
               <option value="1">Active</option>
               <option value="0">Inactive</option>
             </select>
