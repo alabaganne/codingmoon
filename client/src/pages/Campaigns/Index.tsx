@@ -3,7 +3,7 @@ import Table from "./Table";
 
 const Campaigns = () => {
   return (
-    <div className=" container mx-auto">
+    <div className=" container mx-auto mt-20">
       <Table />
     </div>
   );
