@@ -1,14 +1,27 @@
 import React, { useState } from "react";
 import { useMutation } from "react-query";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const CreateCampaign = () => {
   const [name, setName] = useState("");
   const [budget, setBudget] = useState(0);
   const [status, setStatus] = useState("Active");
 
-  const addCampaign = useMutation("addCampaign", () =>
-    axios.post("http://localhost:8000/api/campaign", { name, budget, status })
+  const navigate = useNavigate();
+  const addCampaign = useMutation(
+    "addCampaign",
+    () =>
+      axios.post("http://localhost:8000/api/campaign", {
+        name,
+        budget,
+        status,
+      }),
+    {
+      onSuccess: () => {
+        navigate("/campaigns");
+      },
+    }
   );
 
   const submitCampaign = (e: any) => {

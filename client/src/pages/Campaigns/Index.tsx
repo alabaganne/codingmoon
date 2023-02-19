@@ -1,13 +1,30 @@
 import axios from "axios";
-import React from "react";
+import React, { useEffect } from "react";
 import { FiPlus } from "react-icons/fi";
 import { Link } from "react-router-dom";
-import Table from "./Table";
+import Status from "./Status";
+import Table, { fakeRows } from "./Table";
 
 const Campaigns = () => {
-  axios.get("http://localhost:8000/api/campaign/").then((res) => {
-    console.log(res);
-  });
+  const [rows, setRows] = React.useState<any>([]);
+  useEffect(() => {
+    axios.get("http://localhost:8000/api/campaign/").then((res) => {
+      console.log(res);
+      setRows([...generateData(res.data.data)]);
+    });
+  }, []);
+
+  const generateData = (data: any) => {
+    return data.map((d: any, i: number) => ({
+      id: d._id,
+      name: d.name,
+      status: <Status isActive={d.isActive} />,
+      budget: d.budget,
+      reach: d.reach,
+      numberOfPosts: 0,
+      targets: fakeRows[i].targets,
+    }));
+  };
 
   return (
     <div className=" container mx-auto py-16">
@@ -19,7 +36,17 @@ const Campaigns = () => {
           </Link>
         </div>
       </div>
-      <Table labels={[""]} rows={[]} />
+      <Table
+        labels={[
+          "Campaign",
+          "Status",
+          "Budget",
+          "Reach",
+          "Number of Posts",
+          "Targets",
+        ]}
+        rows={rows}
+      />
     </div>
   );
 };

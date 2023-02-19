@@ -52,7 +52,7 @@ function createData(
   };
 }
 
-const rows = [
+export const fakeRows = [
   createData(
     "Ford",
     true,
@@ -101,7 +101,7 @@ interface Props {
 }
 
 export default function DataTable({ labels, rows }: Props) {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
@@ -110,16 +110,14 @@ export default function DataTable({ labels, rows }: Props) {
             {labels.map((label) => (
               <StyledTableCell>{label}</StyledTableCell>
             ))}
-            <StyledTableCell>Status</StyledTableCell>
-            <StyledTableCell>Budget</StyledTableCell>
-            <StyledTableCell>Reach</StyledTableCell>
-            <StyledTableCell>Number of posts</StyledTableCell>
-            <StyledTableCell>Targets</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
-            <StyledTableRow key={row.name} onClick={() => navigate("1/posts")}>
+          {[...rows, ...fakeRows].map((row) => (
+            <StyledTableRow
+              key={row.name}
+              onClick={() => navigate(row.id + "/posts")}
+            >
               <StyledTableCell>{row.name}</StyledTableCell>
               <StyledTableCell>{row.status}</StyledTableCell>
               <StyledTableCell>{row.budget}</StyledTableCell>
