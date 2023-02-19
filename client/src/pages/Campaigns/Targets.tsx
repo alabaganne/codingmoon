@@ -6,20 +6,21 @@ import youtube from "../../assets/icons/youtube.svg";
 
 export type platform = "facebook" | "instagram" | "tiktok" | "youtube";
 
-export const platformsObject = {
-  facebook: <img src={facebook} />,
-  instagram: <img src={instagram} />,
-  tiktok: <img src={tiktok} />,
-  youtube: <img src={youtube} />,
-};
-
-interface IProps {
+export interface IProps {
   platforms: platform[];
+  imageClassName?: string;
 }
 
-const Targets: FC<IProps> = ({ platforms }) => {
+const Targets: FC<IProps> = ({ platforms, imageClassName = "" }) => {
+  const platformsObject = {
+    facebook: <img className={imageClassName} src={facebook} />,
+    instagram: <img className={imageClassName} src={instagram} />,
+    tiktok: <img className={imageClassName} src={tiktok} />,
+    youtube: <img className={imageClassName} src={youtube} />,
+  };
+
   return (
-    <div className=" flex items-center gap-1">
+    <div className="flex items-center gap-2">
       {platforms.map((platform, index) => platformsObject[platform])}
     </div>
   );
