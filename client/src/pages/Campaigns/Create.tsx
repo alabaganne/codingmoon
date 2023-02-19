@@ -35,7 +35,7 @@ const CreateCampaign = () => {
           </div>
           <div className="form-group">
             <label htmlFor="isActive">Status</label>
-            <select name="isActive" id="isActive" className="form-control">
+            <select name="isActive" id="isActive" className="form-control ">
               <option value="1">Active</option>
               <option value="0">Inactive</option>
             </select>
