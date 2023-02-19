@@ -12,12 +12,10 @@ import image1 from "../../assets/5.png";
 import image2 from "../../assets/2.png";
 import image3 from "../../assets/3.png";
 import image4 from "../../assets/4.png";
-import facebookSvg from "../../assets/icons/facebook.svg";
-import instagramSvg from "../../assets/icons/instagram.svg";
-import youtubeSvg from "../../assets/icons/youtube.svg";
 import imageSvg from "../../assets/icons/image.svg";
-import videoSvg from "../../assets/icons/video.svg";
 import Targets, { platform } from "../Campaigns/Targets";
+import { useQuery } from "react-query";
+import axios from "axios";
 
 interface Post {
   id: number;
@@ -48,6 +46,16 @@ let posts: Post[] = [
 ];
 
 const Posts = () => {
+  const { data } = useQuery(
+    "posts",
+    () => axios.get("http://localhost:8000/api/post"),
+    {
+      onSuccess: () => {
+        console.log(data);
+      },
+    }
+  );
+
   return (
     <div className="py-12 container mx-auto">
       <div className="flex-between">
@@ -61,7 +69,7 @@ const Posts = () => {
       </div>
       <div className="mt-10 grid grid-cols-4 gap-8">
         {posts &&
-          posts.map((post) => (
+          posts.map((post: any) => (
             <Link
               key={post.id}
               to="/"

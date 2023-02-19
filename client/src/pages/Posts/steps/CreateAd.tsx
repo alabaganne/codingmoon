@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { Dispatch, FC, SetStateAction, useState } from "react";
 import image from "../../../assets/icons/image.svg";
 import video from "../../../assets/icons/video.svg";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
@@ -6,12 +6,18 @@ import { storage } from "../../../firebase";
 import Loader from "../../../components/shared/Loader";
 import { Lorem } from "react-lorem-generator";
 
-const CreateAd = () => {
+interface IProps {
+  imageUrl: string;
+  setImageUrl: Dispatch<SetStateAction<string>>;
+  description: string;
+}
+
+const CreateAd: FC<IProps> = ({ imageUrl, setImageUrl }) => {
   const [percent, setPercent] = useState(0);
   const [images, setImages] = React.useState<any>([]);
   const [filename, setFilename] = React.useState("Upload");
   const [loading, setLoading] = useState(false);
-  const [imageUrl, setImageUrl] = useState<any>(null);
+  // const [imageUrl, setImageUrl] = useState<any>(null);
   const [text, setText] = useState<string>("");
 
   const description =
