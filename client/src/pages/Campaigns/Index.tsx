@@ -19,7 +19,7 @@ const Campaigns = () => {
           </Link>
         </div>
       </div>
-      <Table labels={[""]} rows={[]} />
+      <Table labels={["Campaign", "Status", "Budget", "Reach", "# of Posts", "Targets"]} rows={[]} />
     </div>
   );
 };
