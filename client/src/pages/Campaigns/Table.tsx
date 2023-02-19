@@ -95,14 +95,21 @@ const rows = [
   ),
 ];
 
-export default function DataTable() {
-  const navigate = useNavigate();
+interface Props {
+  labels: String[];
+  rows: any[];
+}
+
+export default function DataTable({ labels, rows }: Props) {
+  const navigate = useNavigate()
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
         <TableHead>
           <TableRow>
-            <StyledTableCell>Campagin</StyledTableCell>
+            {labels.map((label) => (
+              <StyledTableCell>{label}</StyledTableCell>
+            ))}
             <StyledTableCell>Status</StyledTableCell>
             <StyledTableCell>Budget</StyledTableCell>
             <StyledTableCell>Reach</StyledTableCell>

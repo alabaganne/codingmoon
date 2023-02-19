@@ -1,10 +1,13 @@
 require("dotenv").config();
+const cors = require("cors");
 
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const app = express();
 const port = 8000;
+
+app.use(cors());
 
 async function main() {
   mongoose.set("strictQuery", false);
